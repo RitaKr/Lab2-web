@@ -1,0 +1,328 @@
+* {
+    box-sizing: border-box;
+
+}
+body {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: var(--grey);
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+button {
+    position: relative;
+    cursor: pointer;
+
+}
+main, aside {
+    background: #fff;
+    
+    margin: 15px;
+    border-radius: 6px;
+
+    box-shadow: -1px 2px 6px rgba(0,0,0,0.15)
+}
+main > *,  aside h1, aside ul {
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    
+}
+main  > *:not(:last-child),  aside h1,  aside section:not(:last-child)  {
+    border-bottom: 1px var(--grey) solid;
+}
+main {
+    width: 70%;
+}
+main .search-panel {
+    display: flex;
+}
+main .search-panel input {
+    padding: 12px;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 3px 0 0 3px;
+    border: 1px var(--grey) solid;
+}
+main .search-panel button {
+    
+    border-radius: 0 3px 3px 0;
+    width:180px;
+    text-align: center;
+    border: none;
+    background: var(--col2);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    
+}
+main .search-panel button:before {
+    content: '';
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 10%;
+    width:100%;
+    border-radius: 0 0 3px 0;
+    border-bottom: 5px solid var(--col3);
+    
+}
+main .item-panel {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+main .item-panel input {
+    padding: 6px 10px;
+    font-size: 1rem;
+    border-radius: 1px;
+    border: none;
+    width: 20%;
+    transition: all 0.4s;
+}
+main .item-panel input:focus {
+    outline: var(--blue) 1px solid;
+    box-shadow: var(--blue1) 0 0 6px;
+    font-size: 0.8rem;
+}
+
+main .item-panel div {
+    display: flex;
+    align-items: center;
+}
+main .item-panel .amount {
+    width:35px;
+    height:35px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--grey2);
+    background: var(--grey1);
+    border-radius: 4px;
+    border: none;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+main .item-panel .less-btn, main .item-panel .more-btn {
+    width:40px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    background: var(--grey1);
+    border-radius: 50%;
+    border: none; 
+}
+main .item-panel .less-btn {
+    background: var(--red);
+    border-bottom:  3px solid var(--red1);
+}
+main .item-panel .more-btn {
+    background: var(--green);
+    border-bottom: 3px solid var(--green1);
+}
+main .item-panel .submission {
+    width: 160px;
+    justify-content: flex-end;
+}
+main .item-panel .buy-btn {
+    padding: 10px 25px;
+    height: 40px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid var(--grey4);
+    color: var(--grey2);
+    font-weight: bold;
+
+}
+main .item-panel .buy-btn:before{
+    content: '';
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 10%;
+    width:100%;
+    border-radius: 4px;
+    border-bottom: 3.5px solid var(--grey);
+    
+}
+main .item-panel .delete-btn {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-align: center;
+    border: none;
+    background: var(--red);
+    color: #fff;
+    font-weight: bold;
+    
+    
+}
+main .item-panel .delete-btn:before {
+    content: '';
+    position: absolute;
+    bottom:0;
+    left:0;
+    height: 10%;
+    width:100%;
+    border-radius: 4px;
+    border-bottom: 4px solid var(--red1);
+    
+}
+aside {
+    width: 40%;
+}
+aside h1 {
+    font-size: 1.5rem;
+}
+aside ul {
+    margin: 0;
+}
+aside li {
+    display: inline-block;
+    padding: 6px 10px;
+    background: var(--grey1);
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--grey2);
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px 0;
+}
+aside li .amount {
+    width: 25px;
+    height: 25px;
+    margin-left:3px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--orange);
+    border-radius: 50%;
+    border: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+.hidden {
+    display: none;
+}
+.crossed {
+    text-decoration: line-through;
+}
+button[disabled="true"] {
+    border-bottom: none!important;
+    opacity: 0.5;
+    cursor: not-allowed !important; 
+    
+}
+button:after{
+    content: attr(data-tooltip) ;
+    padding: 6px;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    min-width:100px;
+    transform: translate(-50%, 5px) scaleY(0);
+    border-radius: 5px;
+    background-color: var(--purple);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: normal;
+    opacity: 0;
+    transform-origin: bottom;
+    transition: all 0.3s ease-in-out;
+}
+button:not([disabled="true"]):hover::after {
+    display: block;
+    opacity: 1;
+      
+      /*transform: translate(-50%, 0);*/
+      transform: translate(-50%, -4px) scaleY(1);
+  }
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform-origin: bottom;
+      /*transform: translate(-50%, 10px);*/
+      transform: translate(-50%, 10px) scaleY(0);
+    }
+    to {
+      opacity: 1;
+      transform-origin: bottom;
+      /*transform: translate(-50%, 0);*/
+      transform: translate(-50%, -4px) scaleY(1);
+    }
+  }
+
+.badge {
+    padding: 20px;
+    width:200px;
+    padding-top: 40px;
+    border-radius: 10px 10px 0 0;
+    background-color: var(--purple);
+    color: white;
+    position: fixed;
+    bottom:0px;
+    left: 20px;
+    transform: translateY(75%);
+    transition: all 0.5s ease;
+}
+.badge:hover {
+    background-color: var(--col2);
+    transform: translateY(0%);
+} 
+:root {
+     --grey: #c9cccf;
+     --grey1: #e6e6e6;
+     --grey2: #5b5b5c;
+     --grey4: #b3b4b6;
+     --col2: #2a67c8;
+     --col3: #245eaa;
+     --blue: #1c87e4;
+     --blue1: #1c87e483;
+     --red: #e32a33;
+     --red1: #ae0009;
+     --green: #02c75e;
+     --green1: #009445;
+     --orange: #fe7f00;
+     --purple: #591384;
+}
+@media screen and (max-width: 500px) {
+    * {
+     font-size: 0.9rem;
+     
+    }
+    body {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    main, aside {
+        width: 92%;
+        margin: 10px 0;
+    }
+    main .item-panel {
+        flex-direction: column;
+        align-items: center;
+    }
+    main .item-panel > * {
+        margin: 5px 0;
+    }
+    main .item-panel input {
+        width:100%;
+        text-align: center;
+    }
+    main .item-panel .submission {
+        justify-content: center;
+    }
+}
