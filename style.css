@@ -1,3 +1,20 @@
+:root {
+    --grey: #c9cccf;
+    --grey1: #e6e6e6;
+    --grey2: #5b5b5c;
+    --grey4: #b3b4b6;
+    --col2: #2a67c8;
+    --col3: #205498;
+    --blue: #1c87e4;
+    --blue1: #1c87e483;
+    --red: #e32a33;
+    --red1: #ae0009;
+    --green: #02c75e;
+    --green1: #009445;
+    --orange: #fe7f00;
+    --purple: #591384;
+}
+
 * {
     box-sizing: border-box;
 
@@ -14,8 +31,9 @@ body {
 button {
     position: relative;
     cursor: pointer;
-
+    transition: all 0.3s ease;
 }
+
 main, aside {
     background: #fff;
     
@@ -34,7 +52,7 @@ main  > *:not(:last-child),  aside h1,  aside section:not(:last-child)  {
     border-bottom: 1px var(--grey) solid;
 }
 main {
-    width: 70%;
+    width: 75%;
 }
 main .search-panel {
     display: flex;
@@ -68,6 +86,9 @@ main .search-panel button:before {
     border-radius: 0 0 3px 0;
     border-bottom: 5px solid var(--col3);
     
+}
+main .search-panel button:hover {
+    background: var(--col3);
 }
 main .item-panel {
     display: flex;
@@ -126,6 +147,10 @@ main .item-panel .more-btn {
     background: var(--green);
     border-bottom: 3px solid var(--green1);
 }
+
+main .item-panel .more-btn:hover {
+    background: var(--green1);
+}
 main .item-panel .submission {
     width: 160px;
     justify-content: flex-end;
@@ -151,6 +176,9 @@ main .item-panel .buy-btn:before{
     border-bottom: 3.5px solid var(--grey);
     
 }
+main .item-panel .buy-btn:hover {
+    background: var(--grey);
+}
 main .item-panel .delete-btn {
     margin-left: 5px;
     width: 40px;
@@ -175,6 +203,9 @@ main .item-panel .delete-btn:before {
     border-radius: 4px;
     border-bottom: 4px solid var(--red1);
     
+}
+main .item-panel .delete-btn:hover, main .item-panel .less-btn:hover {
+    background: var(--red1);
 }
 aside {
     width: 40%;
@@ -225,6 +256,7 @@ button[disabled="true"] {
     cursor: not-allowed !important; 
     
 }
+
 button:after{
     content: attr(data-tooltip) ;
     padding: 6px;
@@ -232,7 +264,7 @@ button:after{
     bottom: 100%;
     left: 50%;
     min-width:100px;
-    transform: translate(-50%, 5px) scaleY(0);
+    transform: translate(-50%, 5px) scale(0);
     border-radius: 5px;
     background-color: var(--purple);
     color: white;
@@ -240,68 +272,98 @@ button:after{
     font-weight: normal;
     opacity: 0;
     transform-origin: bottom;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+button:not([disabled="true"]):hover {
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
 }
 button:not([disabled="true"]):hover::after {
+    box-shadow: 0 3px 5px rgba(0,0,0,0.4);
     display: block;
     opacity: 1;
-      
-      /*transform: translate(-50%, 0);*/
-      transform: translate(-50%, -4px) scaleY(1);
-  }
-@keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform-origin: bottom;
-      /*transform: translate(-50%, 10px);*/
-      transform: translate(-50%, 10px) scaleY(0);
-    }
-    to {
-      opacity: 1;
-      transform-origin: bottom;
-      /*transform: translate(-50%, 0);*/
-      transform: translate(-50%, -4px) scaleY(1);
-    }
+    
+    transform: translate(-50%, -4px) scale(1);
   }
 
+
 .badge {
-    padding: 20px;
-    width:200px;
-    padding-top: 40px;
+    padding: 5px 25px;
+    width: 180px;
     border-radius: 10px 10px 0 0;
     background-color: var(--purple);
+    border: 2px solid var(--purple);
     color: white;
     position: fixed;
     bottom:0px;
     left: 20px;
-    transform: translateY(75%);
+    transform: translateY(55%);
     transition: all 0.5s ease;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+}
+.badge h2 {
+    text-align: center;
+}
+.badge p {
+    font-size: 0.9rem;
+}
+.badge p .author-name {
+    font-size: 1.2rem;
 }
 .badge:hover {
     background-color: var(--col2);
+    border: 2px solid var(--col2);
     transform: translateY(0%);
 } 
-:root {
-     --grey: #c9cccf;
-     --grey1: #e6e6e6;
-     --grey2: #5b5b5c;
-     --grey4: #b3b4b6;
-     --col2: #2a67c8;
-     --col3: #245eaa;
-     --blue: #1c87e4;
-     --blue1: #1c87e483;
-     --red: #e32a33;
-     --red1: #ae0009;
-     --green: #02c75e;
-     --green1: #009445;
-     --orange: #fe7f00;
-     --purple: #591384;
+
+
+@media screen and (max-width: 768px) {
+    * {
+        font-size: 0.9rem;
+        
+    }
+    main, aside {
+        margin: 15px 10px;
+    } 
+    main > *,  aside h1, aside ul {
+        padding: 15px;
+        
+    }
+    main .item-panel {
+        padding: 10px 15px;
+    }
+    main .item-panel input {
+        padding: 6px;
+    }
+
+    main .item-panel .submission {
+        width: 130px;
+    }
+    main .item-panel .delete-btn,  main .item-panel .less-btn, main .item-panel .more-btn{
+        width:32px;
+        height: 32px;
+    }
+    main .item-panel .buy-btn {
+        padding: 6px 16px;
+        height: 32px;
+    }
+    main .item-panel .amount {
+        height: 30px;
+        width: 30px;
+        font-size: 0.8rem;
+    }
+    .badge {
+        transform: translateY(56%);
+        width: 160px;
+    }
+    .badge h2 {
+        font-size: 1.2rem;
+    }
+    .badge p {
+        font-size: 0.8em;
+    }
+    
 }
 @media screen and (max-width: 500px) {
-    * {
-     font-size: 0.9rem;
-     
-    }
     body {
         flex-direction: column;
         align-items: center;
@@ -312,17 +374,18 @@ button:not([disabled="true"]):hover::after {
         margin: 10px 0;
     }
     main .item-panel {
-        flex-direction: column;
-        align-items: center;
+        padding: 15px;
     }
-    main .item-panel > * {
-        margin: 5px 0;
+    
+}
+@media print {
+    .badge {
+        background: white;
+        color: var(--grey2);
+        border-color: var(--purple);
+        transform: translateY(0%);
     }
-    main .item-panel input {
-        width:100%;
-        text-align: center;
-    }
-    main .item-panel .submission {
-        justify-content: center;
+    .badge h2 {
+        display: none;
     }
 }
