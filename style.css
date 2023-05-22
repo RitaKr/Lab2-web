@@ -42,13 +42,13 @@ main, aside {
 
     box-shadow: -1px 2px 6px rgba(0,0,0,0.15)
 }
-main > *,  aside h1, aside ul {
+main > *,  aside h2, aside ul {
     width: 100%;
     padding: 20px;
     margin: 0;
     
 }
-main  > *:not(:last-child),  aside h1,  aside section:not(:last-child)  {
+main  > *:not(:last-child),  aside h2,  aside section:not(:last-child)  {
     border-bottom: 1px var(--grey) solid;
 }
 main {
@@ -148,7 +148,7 @@ main .item-panel .more-btn {
     border-bottom: 3px solid var(--green1);
 }
 
-main .item-panel .more-btn:hover {
+main .item-panel .more-btn:not([disabled]):hover {
     background: var(--green1);
 }
 main .item-panel .submission {
@@ -204,7 +204,7 @@ main .item-panel .delete-btn:before {
     border-bottom: 4px solid var(--red1);
     
 }
-main .item-panel .delete-btn:hover, main .item-panel .less-btn:hover {
+main .item-panel .delete-btn:hover, main .item-panel .less-btn:not([disabled]):hover {
     background: var(--red1);
 }
 aside {
@@ -250,7 +250,7 @@ aside li .amount {
 .crossed {
     text-decoration: line-through;
 }
-button[disabled="true"] {
+button[disabled] {
     border-bottom: none!important;
     opacity: 0.5;
     cursor: not-allowed !important; 
@@ -274,10 +274,10 @@ button:after{
     transform-origin: bottom;
     transition: all 0.4s ease-in-out;
 }
-button:not([disabled="true"]):hover {
+button:not([disabled]):hover {
     box-shadow: 0 3px 5px rgba(0,0,0,0.5);
 }
-button:not([disabled="true"]):hover::after {
+button:not([disabled]):hover::after {
     box-shadow: 0 3px 5px rgba(0,0,0,0.4);
     display: block;
     opacity: 1;
@@ -324,7 +324,7 @@ button:not([disabled="true"]):hover::after {
     main, aside {
         margin: 15px 10px;
     } 
-    main > *,  aside h1, aside ul {
+    main > *,  aside h2, aside ul {
         padding: 15px;
         
     }
