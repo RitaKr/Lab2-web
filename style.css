@@ -261,13 +261,13 @@ button[disabled] {
 
 button:after{
     content: attr(data-tooltip) ;
-    padding: 6px;
+    padding: 8px;
     position: absolute;
     bottom: 100%;
     left: 50%;
     min-width:100px;
     transform: translate(-50%, 5px) scale(0);
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: var(--purple);
     color: white;
     font-size: 0.8rem;
@@ -322,6 +322,9 @@ button:not([disabled]):hover::after {
     * {
         font-size: 0.9rem;
         
+    }
+    h2 {
+        font-size: 1.2rem;
     }
     main, aside {
         margin: 15px 10px;
