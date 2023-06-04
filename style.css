@@ -95,7 +95,7 @@ main .item-panel {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 14px 20px;
 }
 
 main .item-panel input, main .item-panel p {
@@ -249,7 +249,7 @@ aside li .amount {
 .hidden {
     display: none;
 }
-.crossed {
+.crossed, .crossed span {
     text-decoration: line-through;
 }
 button[disabled] {
@@ -377,6 +377,28 @@ button:not([disabled]):hover::after {
     }
     main .item-panel {
         padding: 15px;
+    }
+    
+}
+@media screen and (max-width: 375px) {
+   
+    main .item-panel {
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    main .item-panel > * {
+        margin: 5px 0;
+    }
+    main .item-panel input, main .item-panel p {
+        height: 30px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    main .item-panel .submission {
+        width: 100%;
+        justify-content: center;
     }
     
 }
