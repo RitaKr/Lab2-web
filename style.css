@@ -77,7 +77,7 @@ main .search-panel button {
     font-size: 1rem;
     
 }
-main .search-panel button:before {
+main .search-panel button::before {
     content: '';
     position: absolute;
     bottom:0;
@@ -167,7 +167,7 @@ main .item-panel .buy-btn {
     font-weight: bold;
 
 }
-main .item-panel .buy-btn:before{
+main .item-panel .buy-btn::before{
     content: '';
     position: absolute;
     bottom:0;
@@ -195,7 +195,7 @@ main .item-panel .delete-btn {
     
     
 }
-main .item-panel .delete-btn:before {
+main .item-panel .delete-btn::before {
     content: '';
     position: absolute;
     bottom:0;
@@ -259,7 +259,7 @@ button[disabled] {
     
 }
 
-button:after{
+button::after{
     content: attr(data-tooltip) ;
     padding: 8px;
     position: absolute;
